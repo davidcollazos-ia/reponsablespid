@@ -1,1 +1,1 @@
-Trigger PRE deploymentTrigger PRE deployment
+Trigger PRO deployment after GitHub reconnection
