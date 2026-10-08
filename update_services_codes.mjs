@@ -1,0 +1,11 @@
+import { FileBlob, SpreadsheetFile } from '@oai/artifact-tool';
+const file='outputs/personas_servicios_pid.xlsx';
+const wb=await SpreadsheetFile.importXlsx(await FileBlob.load(file));
+const sh=wb.worksheets.getItem('Servicios');
+const old=sh.getUsedRange().values;
+const rows=old.slice(1).filter(r=>r[0]).map((r,i)=>[r[0],`S${i+1}`,r[1]||'',r[2]||'',r[3]||'',r[4]||'Activo']);
+sh.getRange('A1:F500').clear({applyTo:'contents'});
+sh.getRange(`A1:F${rows.length+1}`).values=[['ServicioID','CodigoServicio','Servicio','Descripción','URLDetalle','Estado'],...rows];
+wb.recalculate();
+const out=await SpreadsheetFile.exportXlsx(wb); await out.save(file);
+console.log(JSON.stringify({updated:rows.length,file}));

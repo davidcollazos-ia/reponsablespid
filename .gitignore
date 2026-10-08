@@ -1,0 +1,4 @@
+node_modules/
+catalogo-servicios-pid.zip
+*.inspect.ndjson
+.tmp_app.js
