@@ -87,3 +87,4 @@ deleteAssignment=async function(id){const row=assignments.find(a=>a.id===id);if(
 
 
 
+<style>.personLoadService{position:relative}.personLoadCode{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;line-height:1;text-shadow:0 1px 2px #000;pointer-events:none;white-space:nowrap;overflow:hidden}</style><script>(function(){function label(){document.querySelectorAll('.personLoadService').forEach(el=>{if(el.querySelector('.personLoadCode'))return;const title=el.getAttribute('title')||'';const code=title.split(' · ')[0];if(code){const b=document.createElement('b');b.className='personLoadCode';b.textContent=code;el.appendChild(b)}})}const old=window.renderSummary;window.renderSummary=function(){old();label()};label()})()</script>
